@@ -31,7 +31,7 @@ search.addEventListener("keydown", async (event) => {
 })
 
 async function getWeatherData(cityName) {
-    const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=1&aqi=no&alerts=no`;
+    const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=1&aqi=no&alerts=no`;
     const response = await fetch(apiUrl);
     if (!response.ok) {
         citySection.textContent = "Enter valid city";
