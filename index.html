@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="nav-bar">
+        <div class="searchBar-section">
+            <input type="text" id="search" placeholder="search city...">
+            <img src="Resources/search-icon.svg" alt="search-Button">
+        </div>
+        <div class="app-name">
+            <img src="Resources/app-logo.svg" alt="app-logo">
+            <span>Weatherly</span>
+        </div>
+    </div>
+    <div class="mobile">
+        <div class="upperSection">
+            <div class="liveWeather">
+                <div class="weather-section">
+                    <div id="city-section"><img src="Resources/pin-icon.svg" alt=""><span id="city">Select a
+                            city...</span>
+                    </div>
+                    <div class="day-section">
+                        <div class="day">-</div>
+                        <div class="date">-</div>
+                    </div>
+                    <div class="currentTemp-section">
+                        <div class="currentTemp"></div>
+                        <div class="highlow-section">
+                            <span class="tempHigh">High: <span id="high">-</span></span>
+                            <span class="tempLow">Low: <span id="low">-</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather-img">
+                    <img src="Resources/cloudy.png" alt="cloudy-img" id="currentWeatherImg">
+                    <div class="weatherDescription-section">
+                        <div class="weatherDescription">-</div>
+                        <div class="feelsLike">Feel's Like <span id="feelslike_c">-</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="airConditions-section">
+                <div class="airConditions-heading">Air Conditions</div>
+                <div class="airConditions-items">
+                    <div class="wind-section">
+                        <div class="wind-heading">
+                            <img src="Resources/wind-icon.svg" alt="wind-icon">Wind
+                        </div>
+                        <div class="wind-index" id="wind">-</div>
+                    </div>
+                    <div class="UV-index-section">
+                        <div class="UV-heading">
+                            <img src="Resources/sun-icon.svg" alt="UV-index">UV Index
+                        </div>
+                        <div id="UV-index">-</div>
+                    </div>
+                    <div class="realFeel-section">
+                        <div class="realFeel-heading">
+                            <img src="Resources/temperature-icon.svg" alt="Real-feel">Real Feel
+                        </div>
+                        <div class="Real-feel" id="RealFeel-index">-</div>
+                    </div>
+                    <div class="RainChance-section">
+                        <div class="RainChance-heading">
+                            <img src="Resources/rain-drop-icon.svg" alt="RainChance-index">Chance of Rain
+                        </div>
+                        <div class="RainChance-index" id="RainChance">-</div>
+                    </div>
+                    <div class="Humidity-section">
+                        <div class="Humidity-heading">
+                            <img src="Resources/humidity-icon.svg" alt="Humidity-index">Humidity
+                        </div>
+                        <div class="RainChance-index" id="Humidity">-</div>
+                    </div>
+                    <div class="SunriseSunset-section">
+                        <div class="SunriseSunset-heading">
+                            <img src="Resources/sunrise-sunset-icon.svg" alt="sun-index">Sunrise/Sunset
+                        </div>
+                        <div class="sun-index"><span id="sunriseTime"></span>/<span id="sunsetTime"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="todaysForecast-section">
+            <div class="todaysForecast-heading">Today's Forecast</div>
+            <div class="tf-timeline-section">
+                <div class="tftime">
+                    <div class="time">12:00AM</div>
+                    <div class="tf-img"><img src="Resources/cloudy.png" alt="cloudy-img" id="img_12am"></div>
+                    <div class="tf-temp" id="time_12am">-</div>
+                </div>
+                <div class="tftime">
+                    <div class="time">2:00AM</div>
+                    <div class="tf-img"><img src="Resources/cloudy.png" alt="cloudy-img" id="img_2am"></div>
+                    <div class="tf-temp" id="time_2am">-</div>
+                </div>
+                <div class="tftime">
+                    <div class="time">4:00AM</div>
+                    <div class="tf-img"><img src="Resources/cloudy.png" alt="cloudy-img" id="img_4am"></div>
+                    <div class="tf-temp" id="time_4am">-</div>
+                </div>
+                <div class="tftime">
+                    <div class="time">6:00AM</div>
+                    <div class="tf-img"><img src="Resources/cloudy.png" alt="cloudy-img" id="img_6am"></div>
+                    <div class="tf-temp" id="time_6am">-</div>
+                </div>
+                <div class="tftime">
+                    <div class="time">8:00AM</div>
+                    <div class="tf-img"><img src="Resources/cloudy.png" alt="cloudy-img" id="img_8am"></div>
+                    <div class="tf-temp" id="time_8am">-</div>
+                </div>
+                <div class="tftime">
+                    <div class="time">10:00AM</div>
+                    <div class="tf-img"><img src="Resources/cloudy.png" alt="cloudy-img" id="img_10am"></div>
+                    <div class="tf-temp" id="time_10am">-</div>
+                </div>
+                <div class="tftime">
+                    <div class="time">12:00PM</div>
+                    <div class="tf-img"><img src="Resources/cloudy.png" alt="cloudy-img" id="img_12pm"></div>
+                    <div class="tf-temp" id="time_12pm">-</div>
+                </div>
+                <div class="tftime">
+                    <div class="time">2:00PM</div>
+                    <div class="tf-img"><img src="Resources/cloudy.png" alt="cloudy-img" id="img_2pm"></div>
+                    <div class="tf-temp" id="time_2pm">-</div>
+                </div>
+                <div class="tftime">
+                    <div class="time">4:00PM</div>
+                    <div class="tf-img"><img src="Resources/cloudy.png" alt="cloudy-img" id="img_4pm"></div>
+                    <div class="tf-temp" id="time_4pm">-</div>
+                </div>
+                <div class="tftime">
+                    <div class="time">6:00PM</div>
+                    <div class="tf-img"><img src="Resources/cloudy.png" alt="cloudy-img" id="img_6pm"></div>
+                    <div class="tf-temp" id="time_6pm">-</div>
+                </div>
+                <div class="tftime">
+                    <div class="time">8:00PM</div>
+                    <div class="tf-img"><img src="Resources/cloudy.png" alt="cloudy-img" id="img_8pm"></div>
+                    <div class="tf-temp" id="time_8pm">-</div>
+                </div>
+                <div class="tftime noborder">
+                    <div class="time">10:00PM</div>
+                    <div class="tf-img"><img src="Resources/cloudy.png" alt="cloudy-img" id="img_10pm"></div>
+                    <div class="tf-temp" id="time_10pm">-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="credits">
+        Designed & Developed by <strong>Jnanadeep</strong>
+    </footer>
+</body>
+<script src="script.js"></script>
+
+</html>
