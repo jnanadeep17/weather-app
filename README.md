@@ -18,3 +18,6 @@ It fetches real-time weather data from **weatherAPI**.
 ## API Note
 This project uses a client-side API key for educational/demo purposes.
 The key is rate-limited and can be rotated if needed.
+
+## Live Demo
+**website**: https://weather-app-eight-murex-70.vercel.app/
