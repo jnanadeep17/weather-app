@@ -21,10 +21,12 @@
     </div>
     <div class="mobile">
         <div class="upperSection">
-            <div class="liveWeather">
+            <div class="liveWeather card">
                 <div class="weather-section">
-                    <div id="city-section"><img src="Resources/pin-icon.svg" alt=""><span id="city">Select a
-                            city...</span>
+                    <div id="city-section">
+                        <img src="Resources/pin-icon.svg" alt="">
+                        <span id="city">Select a city...</span>
+                        <span id="country"></span>
                     </div>
                     <div class="day-section">
                         <div class="day">-</div>
@@ -46,49 +48,49 @@
                     </div>
                 </div>
             </div>
-            <div class="airConditions-section">
+            <div class="airConditions-section card">
                 <div class="airConditions-heading">Air Conditions</div>
                 <div class="airConditions-items">
-                    <div class="wind-section">
-                        <div class="wind-heading">
+                    <div class="wind-section ac-item-padding">
+                        <div class="icon-label">
                             <img src="Resources/wind-icon.svg" alt="wind-icon">Wind
                         </div>
-                        <div class="wind-index" id="wind">-</div>
+                        <div class="wind-index metric-value" id="wind">-</div>
                     </div>
-                    <div class="UV-index-section">
-                        <div class="UV-heading">
+                    <div class="UV-index-section ac-item-padding">
+                        <div class="icon-label">
                             <img src="Resources/sun-icon.svg" alt="UV-index">UV Index
                         </div>
-                        <div id="UV-index">-</div>
+                        <div class="metric-value" id="UV-index">-</div>
                     </div>
-                    <div class="realFeel-section">
-                        <div class="realFeel-heading">
+                    <div class="realFeel-section ac-item-padding">
+                        <div class="icon-label">
                             <img src="Resources/temperature-icon.svg" alt="Real-feel">Real Feel
                         </div>
-                        <div class="Real-feel" id="RealFeel-index">-</div>
+                        <div class="Real-feel metric-value" id="RealFeel-index">-</div>
                     </div>
-                    <div class="RainChance-section">
-                        <div class="RainChance-heading">
+                    <div class="RainChance-section ac-item-padding">
+                        <div class="icon-label">
                             <img src="Resources/rain-drop-icon.svg" alt="RainChance-index">Chance of Rain
                         </div>
-                        <div class="RainChance-index" id="RainChance">-</div>
+                        <div class="RainChance-index metric-value" id="RainChance">-</div>
                     </div>
-                    <div class="Humidity-section">
-                        <div class="Humidity-heading">
+                    <div class="Humidity-section ac-item-padding">
+                        <div class="icon-label">
                             <img src="Resources/humidity-icon.svg" alt="Humidity-index">Humidity
                         </div>
-                        <div class="RainChance-index" id="Humidity">-</div>
+                        <div class="RainChance-index metric-value" id="Humidity">-</div>
                     </div>
-                    <div class="SunriseSunset-section">
-                        <div class="SunriseSunset-heading">
+                    <div class="SunriseSunset-section ac-item-padding">
+                        <div class="icon-label">
                             <img src="Resources/sunrise-sunset-icon.svg" alt="sun-index">Sunrise/Sunset
                         </div>
-                        <div class="sun-index"><span id="sunriseTime"></span>/<span id="sunsetTime"></span></div>
+                        <div class="sun-index "><span id="sunriseTime"></span>/<span id="sunsetTime"></span></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="todaysForecast-section">
+        <div class="todaysForecast-section card">
             <div class="todaysForecast-heading">Today's Forecast</div>
             <div class="tf-timeline-section">
                 <div class="tftime">
@@ -154,10 +156,12 @@
             </div>
         </div>
     </div>
+    <div id="error-toast" class="toast hidden">
+        <span id="toast-message">Something went wrong</span>
+    </div>
     <footer class="credits">
         Designed & Developed by <strong>Jnanadeep</strong>
     </footer>
 </body>
 <script src="script.js"></script>
-
 </html>

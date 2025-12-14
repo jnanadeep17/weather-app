@@ -2,7 +2,6 @@
 // API: WeatherAPI
 // Note: Client-side API key used for educational purposes
 
-
 const apiKey = "5fc91da46e8a4a4daf774753251112";
 
 const citySection = document.getElementById("city")
@@ -21,7 +20,7 @@ search.addEventListener("keydown", async (event) => {
             }
             catch (error) {
                 console.error(error);
-                displayError();
+                showError("City not found. Try again.");
             }
         }
         else {
@@ -34,17 +33,17 @@ async function getWeatherData(cityName) {
     const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=1&aqi=no&alerts=no`;
     const response = await fetch(apiUrl);
     if (!response.ok) {
-        citySection.textContent = "Enter valid city";
-        throw new Error("Could not fetch weather data");
+        showError("Network Error. Try again");
+        return;
     }
-
     return await response.json();
 }
 
 function displayWeatherInfo(data) {
-    console.log(data);
+    // console.log(data);
     const { location: {
-        name: city
+        name: city,
+        country
     },
         current: {
             temp_c, wind_kph,
@@ -76,13 +75,13 @@ function displayWeatherInfo(data) {
         }
     } = data;
 
+    // Assigning Data to Fields
     const receivedDate = date;
     const dayName = new Date(receivedDate).toLocaleDateString("en-US", {
         weekday: "long"
     });
     const day = document.querySelector(".day");
     day.textContent = dayName;
-    console.log(dayName);
 
     const dateClass = document.querySelector(".date");
     dateClass.textContent = formatDate(date);
@@ -97,6 +96,9 @@ function displayWeatherInfo(data) {
     document.getElementById("currentWeatherImg").src = currentWeatherImg;
 
     citySection.textContent = city;
+    const countryName = document.getElementById("country");
+    countryName.textContent = country;
+
     const currentTemp = document.querySelector(".currentTemp");
     currentTemp.textContent = `${Math.round(temp_c)}°C`;
 
@@ -133,7 +135,6 @@ function displayWeatherInfo(data) {
     const sunsetTime = document.getElementById("sunsetTime");
     sunsetTime.textContent = sunset;
 
-    const value = 25
     // Assign Today's Forecast
     const time_12am = document.getElementById("time_12am");
     time_12am.textContent = hourly[0].temp;
@@ -246,6 +247,14 @@ const weatherIcons = {
     1282: "Resources/weather-icons/thundery-outbreaks-possible.svg"
 }
 
-function displayError() {
-    console.log("Something went Wrong!")
+const toast = document.getElementById("error-toast");
+const toastMessage = document.getElementById("toast-message");
+
+function showError(message) {
+  toastMessage.textContent = message;
+  toast.classList.remove("hidden");
+
+  setTimeout(() => {
+    toast.classList.add("hidden");
+  }, 3000);
 }
