@@ -33,11 +33,26 @@ async function getWeatherData(cityName) {
     const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=1&aqi=no&alerts=no`;
     const response = await fetch(apiUrl);
     if (!response.ok) {
-        showError("Network Error. Try again");
-        return;
+        throw new Error("Network error");
     }
     return await response.json();
 }
+
+async function loadDefaultWeather() {
+    const defaultCity = "Bangalore"; 
+
+    try {
+        const weatherData = await getWeatherData(defaultCity);
+        if (weatherData) {
+            displayWeatherInfo(weatherData);
+        }
+    } catch (error) {
+        console.error(error);
+        showError("Unable to load default weather");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadDefaultWeather);
 
 function displayWeatherInfo(data) {
     // console.log(data);
@@ -92,7 +107,7 @@ function displayWeatherInfo(data) {
         image: weatherIcons[h.condition.code] || "Resources/weather-icons/Default.svg"
     }));
 
-    const currentWeatherImg = weatherIcons[code];
+    const currentWeatherImg = weatherIcons[code] || "Resources/weather-icons/Default.svg";
     document.getElementById("currentWeatherImg").src = currentWeatherImg;
 
     citySection.textContent = city;
